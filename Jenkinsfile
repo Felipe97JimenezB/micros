@@ -10,7 +10,7 @@ pipeline {
             }
             steps {
                   sh 'java -version'
-                  sh './gradlew clean build'
+                  sh 'build'
             }
         }
         stage('Test-sonar'){
