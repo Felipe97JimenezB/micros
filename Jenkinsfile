@@ -9,22 +9,10 @@ pipeline {
                 branch '*'
             }
             steps {
-                  sh 'java -version'
                   sh 'build'
             }
         }
         stage('Test-sonar'){
-        when {
-                branch 'main'
-                branch 'desarrollo'
-                branch 'qa'
-            }
-            steps {
-                sh 'make check'
-                junit 'reports/**/*.xml'
-            }
-        }
-         stage('Test-veracode'){
         when {
                 branch 'main'
                 branch 'desarrollo'
