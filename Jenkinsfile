@@ -1,16 +1,19 @@
 pipeline {
     agent any
-    options {
-        skipStagesAfterUnstable()
-    }
     stages {
+        stage('Clone') {
+            steps {
+                git url: 'https://github.com/Nerack15/micro.git'
+            }
+        }
         stage('Build') {
-         when {
+          when {
                 branch '*'
             }
             steps {
-                  sh 'build'
+                sh 'cd rest'
+                sh './gradlew clean build'
             }
         }
-}
+    }
 }
