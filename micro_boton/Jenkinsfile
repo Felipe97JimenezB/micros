@@ -6,7 +6,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './gradlew build'
+                script{
+                sh 'ls -la'
+            }
             }
         }
         stage('test') {
