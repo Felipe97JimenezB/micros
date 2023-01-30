@@ -7,7 +7,12 @@ pipeline {
         stage('Build') {
             steps {
                 script{
-                sh 'ls -la'
+                sh """
+                ls -la
+                cd micro_boton
+                ls -la
+                gradle build
+               """
             }
             }
         }
